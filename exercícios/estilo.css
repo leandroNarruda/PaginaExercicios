@@ -1,0 +1,14 @@
+body{
+    width: 70%;
+    margin: auto;
+}
+#q1, #q2, #q3, #q4, #q5,#q6, #s1, #s2, #s3, #s4, #s5,#s6, #cod1, #cod2, #cod3, #cod4, #cod5{
+    display: none;
+}
+#s3 div div{
+    height: 80px;
+    margin-top: 20px;
+}
+.card{
+    margin-top: 20px;
+}

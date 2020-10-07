@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página de exercícios</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="estilo.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#" id="ex1" onclick="exibeExercicios('q1')"> Exercício 01</a> </li>
+        <li class="list-inline-item"><a href="#" id="ex2" onclick="exibeExercicios('q2')"> Exercício 02</a> </li>
+        <li class="list-inline-item"><a href="#" id="ex3" onclick="exibeExercicios('q3')"> Exercício 03</a> </li>
+        <li class="list-inline-item"><a href="#" id="ex4" onclick="exibeExercicios('q4')"> Exercício 04</a> </li>
+        <li class="list-inline-item"><a href="#" id="ex5" onclick="exibeExercicios('q5')"> Exercício 05</a> </li>
+        <li class="list-inline-item"><a href="#" id="ex5" onclick="exibeExercicios('q6')"> Exercício 06</a> </li>
+    </ul>
+
+    <div class="container" id="q1">
+        <h1>Exercício 01</h1>
+        <p>
+            Crie uma função que dado o objeto a seguir:<br>
+            <b> var endereco = { <br>
+                rua: "Rua dos pinheiros",<br>
+                numero: 1293,<br>
+                bairro: "Centro",<br>
+                cidade: "São Paulo",<br>
+                uf: "SP"<br>
+                };<br>
+            </b>
+            Retorne o seguinte conteúdo:<br>
+            <b> O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" com
+                nº 1293.</b>
+        </p>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('s1')">Solução</button>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('cod1')">Código</button>
+    </div>
+    <div class="card" id="s1"><br>
+        <div class="card-body">
+            <h3>Preencha o fomulário abaixo:</h3><br>
+            <form name="cadastro" action="">
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">Rua:</label>
+                    <div class="col-sm-10">
+                        <input name="rua" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">Número:</label>
+                    <div class="col-sm-10">
+                        <input name="numero" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">Bairro:</label>
+                    <div class="col-sm-10">
+                        <input name="bairro" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">Cidade:</label>
+                    <div class="col-sm-10">
+                        <input name="cidade" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">UF:</label>
+                    <div class="col-sm-10">
+                        <input name="uf" type="text" class="form-control"><br>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="right btn btn-primary btn-block" onclick="answer1()">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card" id="cod1">
+        <div class="card-body">
+            function answer1() { <br>
+            rua = document.cadastro.rua.value;<br>
+            numero = document.cadastro.numero.value;<br>
+            bairro = document.cadastro.bairro.value;<br>
+            cidade = document.cadastro.cidade.value;<br>
+            uf = document.cadastro.uf.value;<br>
+            msg = "O usuário mora em " + cidade + " / " + uf + ", no bairro " + bairro + ", na rua \"" + rua +
+            "\" com
+            nº " + numero + "."<br>
+            alert(msg)<br>
+            }
+        </div>
+    </div>
+
+    <div class="container" id="q2">
+        <h1>Exercício 02</h1>
+        <p>Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:</p>
+        <button type="button" class="btn btn-dark" onclick="answer2()">Solução</button>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('cod2')">Código</button>
+    </div>
+
+    <div class="card" id="cod2">
+        <div class="card-body">
+            function answer2() { <br>
+            var num1 = parseInt(prompt("Digite o primeiro número:"))<br>
+            var num2 = parseInt(prompt("Digite o segundo número:"))<br>
+            var v = []<br>
+            if (num1 % 2 != 0) {<br>
+            num1--;<br>
+            }<br>
+            for (let index = 2; index + num1 < num2; index +=2) {<br>
+                v.push(index + num1);<br>
+                }<br>
+                if (num1 > num2)<br>
+                alert("ERRO: O segundo número deve ser maior que o primeiro!")<br>
+                else<br>
+                alert("Os números pares entre " + num1 + " e " + num2 + " são: " + v)<br>
+                }
+        </div>
+    </div>
+
+    <div class="container" id="q3">
+        <h1>Exercício 03</h1>
+        <p>Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado. Sempre que o botão
+            for clicado um novo quadrado de cor diferente deve ser gerado. Além disso, ao passarmos o cursor do mouse
+            por cima do elemento, o mesmo deve mudar de cor aleatóriamente</p>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('s3')">Solução</button>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('cod3')">Código</button>
+    </div>
+
+    <div class="card" id="s3">
+        <button type="button" class="btn btn-primary" onclick="answer3()">Gerar quadrado</button>
+        <div class="card-body row">
+        </div>
+    </div>
+
+
+    <div class="card" id="cod3">
+    </div>
+
+    <div class="container" id="q4">
+        <h1>Exercício 04</h1>
+        <p>Escreva uma função que dado um total de anos de estudo retorna o quão experiente o usuário é:</p>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('s4')">Solução</button>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('cod4')">Código</button>
+    </div>
+
+    <div class="card" id="s4">
+        <div class="card-body">
+            <p><b>Secione a quantidade de anos trabalhados:</b></p>
+            <div class="input-group">
+                <div class="input-group-propend">
+                    <input type="radio" id="iniciante" name="anos" value="1"> 0-1<br>
+                    <input type="radio" id="intermediario" name="anos" value="3"> 1-3<br>
+                    <input type="radio" id="avancado" name="anos" value="5"> 3-6<br>
+                    <input type="radio" id="master" name="anos" value="7"> 7 ou mais<br>
+                </div>
+            </div>
+            <div class="col-lg-12" style="text-align: right;">
+                <button type="submit" class="btn btn-primary" onclick="answer4()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="cod4">
+        <div class="card-body">
+            function answer4() {<br>
+            var iniciante = document.getElementById('iniciante')<br>
+            var intermediario = document.getElementById('intermediario')<br>
+            var avancado = document.getElementById('avancado')<br>
+            var master = document.getElementById('master')<br>
+            <br>
+            if (iniciante.checked == true)<br>
+            alert("O usuário está no nível Iniciante")<br>
+            else if (intermediario.checked == true)<br>
+            alert("O usuário está no nível Intermediário")<br>
+            else if (avancado.checked == true)<br>
+            alert("O usuário está no nível Avançado")<br>
+            else if (master.checked == true)<br>
+            alert("O usuário está no nível Jedi Master")<br>
+            }<br>
+        </div>
+    </div>
+
+    <div class="container" id="q5">
+        <h1>Exercício 05</h1>
+        <p>Crie uma lista &lt;ul&gt; de usuários, onde seja possível adicionar ou remover nomes.</p>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('s5')">Solução</button>
+        <button type="button" class="btn btn-dark" onclick="exibeCard('cod5')">Código</button>
+
+    </div>
+
+    <div class="card" id="s5">
+        <div class="card-body">
+            <input class="col-sm-4" type="text" id='user' placeholder="Digite o nome de um usuário">
+            <button onclick="add()">Adicionar</button>
+            <ul id="pai"></ul>
+        </div>
+    </div>
+
+    <div class="card" id="cod5">
+        <div class="card-body">
+        </div>
+    </div>
+    <div class="container" id="q6">
+        <h1>Exercício 06</h1>
+        <p>Crie uma tela com um &lt;input&gt; que deve receber o nome de um usuário no Github. Após digitar o
+            nome do usuário e clicar no botão buscar a aplicação deve buscar pela API do Github os dados de repositórios do usuário e mostrá-los em tela:
+        </p>
+            <button type="button" class="btn btn-dark" onclick="exibeCard('s6')">Solução</button>
+            <button type="button" class="btn btn-dark" onclick="exibeCard('cod6')">Código</button>
+    </div>
+
+    <div class="card" id="s6">
+        <div class="card-body">
+            <input class="col-sm-4" type="text" id='usuario' placeholder="Digite o nome de um usuário">
+            <button onclick="getUserRepo()">buscar</button>
+            <ul id=listaRepo></ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
